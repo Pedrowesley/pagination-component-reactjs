@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Pagination } from "./Pagination";
 
-function App() {
+const json = {
+  size: 30,
+  totalItems: 208,
+  page: 1,
+  total: 7,
+};
+
+function App(props) {
+  function triggerRequest(page) {
+    console.log(`A request será disparada para a página ${page}`);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Pagination
+        totalItems={json.totalItems}
+        pagesAmount={3}
+        selectPage={(page) => {
+          triggerRequest(page);
+        }}
+      />
+    </>
   );
 }
 
