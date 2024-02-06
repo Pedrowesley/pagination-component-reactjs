@@ -1,70 +1,90 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pagination Component - ReactJS
 
-## Available Scripts
+Welcome to the Pagination Component repository!
 
-In the project directory, you can run:
+## Description
 
-### `yarn start`
+The Pagination Component is a React component designed to simplify pagination for API requests. It provides easy navigation through paginated responses from API endpoints.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To use the GitHub Pagination Component in your React project, follow these steps:
 
-### `yarn test`
+1. Clone the GitHub repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ```bash
+    git clone https://github.com/Pedrowesley/pagination-component-reactjs.git
+    ```
 
-### `yarn build`
+2. Copy the `Pagination.js` file into your project.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Import the `Pagination` component into your React code:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```javascript
+    import { Pagination } from './Pagination';
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Use the `Pagination` component in your code, providing the necessary props:
 
-### `yarn eject`
+    ```javascript
+    <Pagination totalItems={totalItems} pagesAmount={pagesAmount} selectPage={selectPage} />
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Features
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Efficient Pagination:** Divide large datasets into manageable pages for easier navigation.
+- **Customizable:** Adjust the number of pages displayed per pagination instance.
+- **Simple Integration:** Easily integrate into your React projects by copying the component file.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Component Structure
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The `Pagination` component is structured as follows:
 
-## Learn More
+- **totalItems:** Total number of items to paginate.
+- **pagesAmount:** Number of pages to display at once.
+- **selectPage:** Function to handle page selection.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Example
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Here's an example of how you can use the `Pagination` component in your React project:
 
-### Code Splitting
+```javascript
+import React, { useState } from 'react';
+import { Pagination } from './Pagination';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+function App() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 10; // Example total number of pages
 
-### Analyzing the Bundle Size
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    // Fetch data for the new page from GitHub API
+  };
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  return (
+    <div className="App">
+      <h1>GitHub Pagination Example</h1>
+      <Pagination
+        totalItems={totalPages}
+        pagesAmount={3}
+        selectPage={handlePageChange}
+      />
+    </div>
+  );
+}
 
-### Making a Progressive Web App
+export default App;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contributing
 
-### Advanced Configuration
+Contributions to the GitHub Pagination Component are welcome! Feel free to open issues or submit pull requests for any improvements or bug fixes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License
 
-### Deployment
+This project is licensed under the [MIT License](LICENSE).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to customize this README further to include any additional information or details specific to your component.
